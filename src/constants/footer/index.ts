@@ -3,31 +3,31 @@ const footerDescription =
 
 const footerLists = [
   {
-    heading: "Services",
+    heading: "Projects",
     items: [
       {
         name: "Water Engineering",
-        link: "#",
+        link: "/projects",
       },
       {
         name: "Pipes and Fittings",
-        link: "#",
+        link: "/projects",
       },
       {
         name: "Filtration Experts",
-        link: "#",
+        link: "/projects",
       },
       {
         name: "Pumps and Motors",
-        link: "#",
+        link: "/projects",
       },
       {
         name: "Starter Panels",
-        link: "#",
+        link: "/projects",
       },
       {
         name: "Sales and Services",
-        link: "#",
+        link: "/projects",
       },
     ],
   },
@@ -36,15 +36,15 @@ const footerLists = [
     items: [
       {
         name: "About",
-        link: "#",
+        link: "/about#",
       },
       {
-        name: "Products",
-        link: "#",
+        name: "Services",
+        link: "/#services",
       },
       {
-        name: "FAQ",
-        link: "#",
+        name: "Contact",
+        link: "/#contact",
       },
     ],
   },
@@ -52,9 +52,10 @@ const footerLists = [
   {
     heading: "Support",
     items: [
-      { name: "+234875697789", href: "#" },
-      { name: "info@ovamann.ng", href: "#" },
-      { name: "hello@ovamann.ng", href: "#" },
+      { name: "+234012955803", href: "tel:+234012955803" },
+      { name: "+2348033207819", href: "tel:+2348033207819" },
+      { name: "info@ovamann.ng", href: "mailto:info@ovamann.ng" },
+      { name: "hello@ovamann.ng", href: "mailto:info@ovamann.ng" },
     ],
   },
 ];

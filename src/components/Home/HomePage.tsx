@@ -1,19 +1,24 @@
-import { AboutUs, Hero, Services, OurMission, OurProjects } from "./sections";
-import ContactUs from "./sections/ContactUs";
-import Counter from "./sections/CountUp";
+import { HomepageProjectData } from "@/typings/projects";
+import {
+  AboutUs,
+  Hero,
+  Services,
+  OurMission,
+  OurProjects,
+  ContactUs,
+} from "./sections";
 import Partners from "./sections/Partners";
 import Projects from "./sections/Projects";
 
-const HomePage = () => {
+const HomePage = ({ projects }: HomepageProjectData) => {
   return (
     <>
       <Hero />
       <Partners />
-      {/* <Counter /> */}
       <AboutUs />
       <OurMission />
       <OurProjects />
-      <Projects />
+      <Projects projects={projects} />
       <Services />
       <ContactUs />
     </>

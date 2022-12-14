@@ -1,19 +1,26 @@
+import client from "@/apollo-client";
 import ProjectDetail from "@/components/projects/ProjectDetail";
+import {
+  GET_PROJECTS_SLUGS,
+  GET_PROJECT_DETAILS,
+  GET_RELATED_PROJECTS,
+} from "@/lib/query";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 
-const Project = () => {
+const Project = ({ projectDetails, projects }: any) => {
   return (
     <>
-      {/* <Head>
-        {project.name && <title>{project.name}</title>}
+      <Head>
+        {projectDetails.title && <title>{projectDetails.title}</title>}
 
         <meta
           name="description"
-          content={`${project.name} website by Stephen Arogundade`}
+          content={`${projectDetails.title} project by Ovamann`}
         />
-      </Head> */}
+      </Head>
       <div>
-        <ProjectDetail />
+        <ProjectDetail projectDetails={projectDetails} projects={projects} />
       </div>
     </>
   );
@@ -22,38 +29,40 @@ const Project = () => {
 export default Project;
 
 ///////////////////
-// export async function getStaticPaths() {
-//   const query = groq`*[_type == "projects" && defined(slug.current)][].slug.current`;
-//   const paths = await client.fetch(query);
-//   return {
-//     paths: paths.map((slug: any) => ({ params: { slug } })),
-//     fallback: false,
-//   };
-// }
+export async function getStaticPaths() {
+  const { data } = await client.query({
+    query: GET_PROJECTS_SLUGS,
+  });
+  return {
+    paths: data.projects.map((project: { slug: string }) => ({
+      params: {
+        slug: project.slug,
+      },
+    })),
+    // paths: data.posts.map(({ slug }) => ({ params: { slug } })),
+    fallback: "blocking",
+  };
+}
 
-////////////////////
-// export async function getStaticProps({ params }: GetStaticPropsContext) {
-//   const query = groq`*[_type == 'projects' && slug.current == $slug][0]{
-//     name,
-//     desktop_preview,
-//     long_description,
-//     stack,
-//     libraries,
-//     code,
-//     live,
-//     slug,
-//     mobile_view1,
-//     mobile_view2,
-//     design_process,
-//     challenges,
-//     future_improvements,
-//     _id
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug;
+  const projectDetailsRes = await client.query({
+    query: GET_PROJECT_DETAILS,
+    variables: {
+      slug,
+    },
+  });
+  const otherProjectsRes = await client.query({
+    query: GET_RELATED_PROJECTS,
+    variables: {
+      slug,
+    },
+  });
 
-//   }`;
-//   const project = await client.fetch(query, { slug: params?.slug });
-//   return {
-//     props: {
-//       project,
-//     },
-//   };
-// }
+  return {
+    props: {
+      projectDetails: projectDetailsRes.data.project || [],
+      projects: otherProjectsRes.data.projects || [],
+    },
+  };
+};

@@ -1,41 +1,137 @@
-import { QueryClient } from "@tanstack/react-query";
+import { gql } from "@apollo/client";
 
-const queryClient = new QueryClient();
+export const GET_PROJECT_BY_CATEGORY = gql`
+  query MyQuery($first: Int, $category: String) {
+    projectsConnection(
+      where: { categories_some: { name: $category } }
+      first: $first
+    ) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          categories {
+            name
+          }
+          coverImage {
+            url
+          }
+          slug
+          title
+          excerpt
+        }
+      }
+    }
+  }
+`;
 
-export default queryClient;
+export const GET_ALL_PROJECTS = gql`
+  query MyQuery($first: Int) {
+    projectsConnection(first: $first) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          categories {
+            name
+          }
+          coverImage {
+            url
+          }
+          slug
+          title
+          excerpt
+        }
+      }
+    }
+  }
+`;
 
-// export const getSingleProduct = async () => {
-//     try {
-//         const title = router?.query?.title;
+export const GET_PROJECTS_SLUGS = gql`
+  query GetProjectsSlugs {
+    projects {
+      slug
+    }
+  }
+`;
 
-//         const respJSON = await fetch(`/api/products/${title}`);
-//         const resp = await respJSON.json();
-//         return resp;
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+export const GET_PROJECT_DETAILS = gql`
+  query GetProjectDetails($slug: String!) {
+    project(where: { slug: $slug }) {
+      coverImage {
+        url
+      }
+      gallery {
+        url
+      }
+      overview
+      projectBrochure {
+        url
+      }
+      slug
+      title
+      yearCompleted
+      whatWeDid {
+        raw
+      }
+      projectOverview {
+        raw
+      }
+      categories {
+        name
+      }
+      date
+      client
+      yearCompleted
+      location
+    }
+  }
+`;
 
-// export const getAllCategories = async () => {
-//     try {
-//         const respJSON = await fetch("/api/categories");
-//         const resp = await respJSON.json();
-//         return resp;
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+export const CATEGORY_NAMES_QUERY = gql`
+  query CategoryNames {
+    categories {
+      name
+    }
+  }
+`;
 
-// export const getSingleCategory = async ({ pageParam = null }) => {
-//     try {
-//         let url = `/api/categories/${router.query.id}`;
-//         if (pageParam) {
-//             url += `?cursorId=${pageParam}`;
-//         }
-//         const respJSON = await fetch(url);
-//         const resp = await respJSON.json();
-//         return resp;
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+export const HOMEPAGE_PROJECTS_QUERY = gql`
+  query Projects {
+    projects(last: 3) {
+      excerpt
+      id
+      slug
+      title
+      categories {
+        name
+      }
+      coverImage {
+        url
+      }
+    }
+  }
+`;
+
+export const GET_RELATED_PROJECTS = gql`
+  query Projects($slug: String) {
+    projects(last: 3, where: { slug_not: $slug }) {
+      excerpt
+      id
+      slug
+      title
+      categories {
+        name
+      }
+      coverImage {
+        url
+      }
+    }
+  }
+`;

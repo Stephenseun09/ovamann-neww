@@ -1,33 +1,23 @@
+import client from "@/apollo-client";
 import HomePage from "@/components/Home/HomePage";
+import { HomepageProjectData } from "@/typings/projects";
+import { HOMEPAGE_PROJECTS_QUERY } from "@/lib/query";
 
-export default function Home() {
+export default function Home({ projects }: HomepageProjectData) {
   return (
     <div>
-      <HomePage />
+      <HomePage projects={projects} />
     </div>
   );
 }
 
-// export async function getStaticProps() {
-//   const data = await client.fetch(query);
-//   const { skills, projects } = data.reduce(
-//     (acc: any, curr: any) => {
-//       if (curr.skills) {
-//         acc.skills = curr.skills;
-//       }
-//       if (curr.projects) {
-//         acc.projects = curr.projects;
-//       }
-//       return acc;
-//     },
-//     { skills: [], projects: [] }
-//   );
-//   return {
-//     props: {
-//       data: {
-//         skills,
-//         projects,
-//       },
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const projects = await client.query({
+    query: HOMEPAGE_PROJECTS_QUERY,
+  });
+  return {
+    props: {
+      projects: projects.data.projects || [],
+    },
+  };
+}

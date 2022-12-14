@@ -10,7 +10,7 @@ const SectionWrapper = ({
 }) => {
   return (
     <div
-      className={`${className} mx-auto max-w-[89rem] px-4 py-10 sm:px-5 md:px-7 md:py-12 `}
+      className={`${className} mx-auto max-w-[89rem] px-4 py-10 sm:px-5 md:px-7 md:py-12 lg:py-16 `}
       style={style}
       {...props}
     >

@@ -21,8 +21,10 @@ const FilterByPill = ({
   return (
     <button
       className={`${
-        activeTab === label ? "bg-black text-white" : "bg-white text-black"
-      } text-sm border hover:bg-black hover:text-white border-black px-3 py-1 rounded-full h-fit transition-all ease-linear duration-100 ${className}`}
+        activeTab === label
+          ? "bg-black text-white shadow-lg"
+          : "bg-white text-black"
+      } text-sm border hover:bg-black hover:text-white  border-black px-3 py-1 rounded-full h-fit transition-all ease-linear duration-100 ${className}`}
       onClick={handleClick}
     >
       {label}

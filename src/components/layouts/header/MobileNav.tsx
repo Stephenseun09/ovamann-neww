@@ -87,7 +87,7 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
             >
               <Link
                 href={item.link}
-                className="inline-block border-transparent text-center transition-all hover:text-primary-turquoise"
+                className="inline-block border-transparent text-center transition-all hover:text-primary"
               >
                 {item.name}
               </Link>

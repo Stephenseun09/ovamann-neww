@@ -37,15 +37,15 @@ const OurProjects = ({
   showDescription?: boolean;
 }) => {
   return (
-    <section className="relative bg-primary-blue text-white lg:py-8">
+    <section className="relative bg-primary-blue text-white ">
       <SectionWrapper className="">
         <div className=" flex justify-between flex-col md:flex-row gap-6 md:gap-8 lg:gap-10 ">
-          <h2 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[80px] uppercase shrink-0 md:max-w-[70%]">
+          <h2 className="font-semibold text-white text-3xl sm:text-4xl md:text-5xl uppercase shrink-0 md:max-w-[50%]">
             Our <br className="hidden md:block" /> Projects so far
           </h2>
-          <div className="grow">
+          <div className={`${showDescription ? "" : "grow"} md:max-w-[50%]`}>
             {showDescription && (
-              <p className=" text-md md:text-lg lg:text-2xl max-w-xl">
+              <p className=" text-md md:text-lg lg:text-xl max-w-xl">
                 Ovamann Pumps Limited is a technology-driven Organization that
                 specializes in the sales, distribution, installation, and
                 maintenance of all forms of pumps, electric motors, industrial &
@@ -55,19 +55,19 @@ const OurProjects = ({
 
             <div
               className={`${
-                showDescription ? "mt-6 md:mt-10 lg:mt-20" : ""
-              }  space-y-4 md:space-y-8 lg:space-y-10`}
+                showDescription ? "mt-6 md:mt-10 " : ""
+              }  space-y-4 md:space-y-8`}
             >
               {countData.map((item, index) => (
                 <div
                   key={index}
-                  className=" flex flex-col gap-2 md:gap-3 border-b-[1px] pb-3 border-slate-400 w-[70%]"
+                  className=" flex flex-col gap-2 border-b-[1px] pb-3 border-slate-400 w-[70%]"
                 >
-                  <p className=" font-bold text-3xl md:text-4xl lg:text-[42px]">
+                  <p className=" font-bold text-3xl md:text-4xl">
                     {item.count}
                     {index !== 2 ? "+" : ""}
                   </p>
-                  <p className="text-xs sm:text-sm md:text-base lg:text-xl font-normal">
+                  <p className="text-xs sm:text-sm md:text-base font-normal">
                     {item.description}
                   </p>
                 </div>

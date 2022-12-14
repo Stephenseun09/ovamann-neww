@@ -1,30 +1,36 @@
 import Image from "next/image";
 import heroImg from "../../../public/images/hero.png";
 import SectionWrapper from "../ui/SectionWrapper";
-import { fadeInBottom } from "@/utils/animations";
-import { motion } from "framer-motion";
-import aboutUsImg from "../../../public/images/about/about-us.png";
 import building from "../../../public/images/about/building.jpg";
+import { ContactUs } from "../Home/sections";
 
 const About = () => {
   return (
     <>
       <section>
-        <div className="">
-          <div className="mt-[74px] md:mt-8 lg:mt-0 grid grid-cols-1 ">
+        <div className="mt-[74px] md:mt-8 lg:mt-0">
+          <div className=" grid grid-cols-1">
             <Image
               src={heroImg}
               alt="hero image"
               width={1512}
               height={425}
               placeholder="blur"
-              className="object-cover w-full col-start-1 row-start-1 "
+              className="object-cover w-full col-start-1 row-start-1 h-full"
               priority
             />
-            <div className="grid place-content-center col-start-1 row-start-1 bg-black bg-opacity-20">
-              <h1 className=" text-white md:text-center font-extrabold text-3xl md:text-4xl lg:text-5xl drop-shadow-lg shadow-lg">
-                About Us
-              </h1>
+            <div className="grid items-center col-start-1 row-start-1 bg-black bg-opacity-20 px-4  sm:px-5 md:px-7 py-4 mt-4">
+              <div className="w-full flex justify-between flex-col md:flex-row gap-6 mx-auto max-w-[86rem]">
+                <h1 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase shrink-0 drop-shadow-lg shadow-lg">
+                  About Us
+                </h1>
+                <p className="text-white text-md md:text-lg lg:text-xl max-w-xl">
+                  Ovamann Pumps Limited is a technology-driven Organization that
+                  specializes in the sales, distribution, installation, and
+                  maintenance of all forms of pumps, electric motors, industrial
+                  & domestic plumbing systems and projects.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -34,44 +40,23 @@ const About = () => {
                 <div className=" md:grid grid-cols-12 gap-4 space-y-8 md:space-y-0 items-center">
                   {/*  */}
                   <div className=" col-span-5 lg:col-span-6 h-full flex flex-col space-y-5  justify-center">
-                    <motion.h2
-                      className="text-2xl md:text-3xl lg:text-4xl text-black capitalize font-bold leading-none xl:max-w-[60%]"
-                      variants={fadeInBottom}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={0}
-                      viewport={{ once: true }}
-                    >
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl text-black capitalize font-bold leading-none xl:max-w-[60%]">
                       Providing{" "}
-                      <span className="text-primary-turquoise">
+                      <span className="text-primary">
                         {" "}
                         Topnotch Pumping Solutions
                       </span>
-                    </motion.h2>
-                    <motion.h3
-                      variants={fadeInBottom}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={0.3}
-                      viewport={{ once: true }}
-                      className="text-black text-lg lg:text-2xl leading-tight lg:max-w-[37ch]"
-                    >
+                    </h2>
+                    <h3 className="text-black text-lg lg:text-2xl leading-tight lg:max-w-[37ch]">
                       We are the leading Pumps and Fluid Transmission Company in
                       West Africa
-                    </motion.h3>
-                    <motion.p
-                      className="text-paragraph text-md  md:text-lg lg:text-xl lg:max-w-[45ch]"
-                      variants={fadeInBottom}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={0.4}
-                      viewport={{ once: true }}
-                    >
+                    </h3>
+                    <p className="text-paragraph text-md  md:text-lg lg:text-xl lg:max-w-[45ch]">
                       With over 20 years of experience in the sales,
                       distribution, installation, and maintenance of all forms
                       of pumps and fluid transmission projects, locally and
                       Internationally.
-                    </motion.p>
+                    </p>
                   </div>
                   {/*  */}
                   <div className="md:absolute top-0 bottom-0 right-0 md:w-1/2 h-full md:py-12">
@@ -92,14 +77,7 @@ const About = () => {
             <div className="relative">
               <SectionWrapper className="relative">
                 <div className=" flex flex-col space-y-5 ">
-                  <motion.p
-                    className="text-black text-md  md:text-base "
-                    variants={fadeInBottom}
-                    initial="hidden"
-                    whileInView="visible"
-                    custom={0.5}
-                    viewport={{ once: true }}
-                  >
+                  <p className="text-black text-md  md:text-base ">
                     In OVAMANN PUMPS LIMITED, we have worked and still working
                     with our team of foreign partners/manufacturers and best
                     possible hands we can get in pump business in order to
@@ -108,40 +86,29 @@ const About = () => {
                     of most efficient and reliable oil pumps / water engineering
                     services at the most affordable price in the West Africa
                     market.
-                  </motion.p>
+                  </p>
 
-                  <motion.p
-                    className="text-black text-md  md:text-base"
-                    variants={fadeInBottom}
-                    initial="hidden"
-                    whileInView="visible"
-                    custom={1}
-                    viewport={{ once: true }}
-                  >
+                  <p className="text-black text-md  md:text-base">
                     In fact, when it comes to providing the most efficient and
                     reliable pumps and water engineering services at the most
                     affordable price in the West African market, we hold the
                     record. With constantly improving technology, we will
                     continue to work harder for higher efficiency levels in a
                     very cost effective manner
-                  </motion.p>
-                  <motion.blockquote
-                    className="text-paragraph text-md  md:text-base xl:max-w-[80%] italic border-l-4 border-primary-turquoise pl-4 py-2"
-                    variants={fadeInBottom}
-                    initial="hidden"
-                    whileInView="visible"
-                    custom={0.6}
-                    viewport={{ once: true }}
-                  >
+                  </p>
+                  <blockquote className="text-paragraph text-md  md:text-base xl:max-w-[80%] italic border-l-4 border-primary-turquoise pl-4 py-2">
                     If you are doing everything you can to choose the pumps that
                     will work for you, your company or state, or organization,
                     why not go the distance, turn to OVAMANN PUMPS LIMITED
                     today.
-                  </motion.blockquote>
+                  </blockquote>
                 </div>
                 {/*  */}
               </SectionWrapper>
             </div>
+
+            {/*  */}
+            <ContactUs />
           </div>
         </div>
       </section>

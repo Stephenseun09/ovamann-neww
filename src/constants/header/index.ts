@@ -1,8 +1,8 @@
 const navItems = [
-  { name: "Products", link: "#" },
   { name: "projects", link: "/projects" },
+  { name: "Services", link: "/#services" },
   { name: "about us", link: "/about" },
-  { name: "Services", link: "#" },
+  { name: "contact us", link: "/#contact" },
 ];
 
 const headerData = { navItems };

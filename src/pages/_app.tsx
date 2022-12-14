@@ -1,6 +1,7 @@
 import Router from "next/router";
 import NProgress from "nprogress";
-import { QueryClientProvider } from "@tanstack/react-query";
+import client from "@/apollo-client";
+import { ApolloProvider } from "@apollo/client";
 
 import type { AppProps } from "next/app";
 
@@ -9,8 +10,6 @@ import Layout from "@/components/layouts/Layout";
 
 import "../../styles/globals.css";
 import "../../styles/nprogress.css";
-import queryClient from "@/lib/query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 //////////////////////////////////
 
@@ -44,21 +43,20 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           property="og:description"
           content="Ovamann Pumps Limited is a technology-driven Organization that specializes in the sales, distribution, installation, and maintenance of all forms of pumps..."
         />
-        <meta name="theme-color" content="#041e42" />
-        {/* <link
+        <meta name="theme-color" content="#08408D" />
+        <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon-16x16.png"
-        /> */}
+          href="/ovamann-favico.png"
+        />
       </Head>
 
-      <QueryClientProvider client={queryClient}>
+      <ApolloProvider client={client}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+      </ApolloProvider>
     </>
   );
 }

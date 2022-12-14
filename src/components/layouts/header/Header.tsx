@@ -39,6 +39,7 @@ const Header = () => {
               width={130}
               height={47}
               priority
+              onClick={() => setIsOpen.off()}
             />
           </Link>
 
@@ -63,9 +64,9 @@ const Header = () => {
                           href={item.link}
                           className={`${
                             asPath.includes(item.link)
-                              ? "text-black"
+                              ? "text-primary"
                               : "text-black"
-                          } capitalize hover:text-primary-turquoise font-semibold transition-all duration-150 ease-in-out`}
+                          } capitalize hover:text-primary font-semibold transition-all duration-150 ease-in-out`}
                         >
                           {item.name}
                         </Link>

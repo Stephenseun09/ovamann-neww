@@ -1,3 +1,4 @@
+import ClientOnly from "@/clientOnly";
 import Projects from "@/components/projects";
 import Head from "next/head";
 
@@ -12,9 +13,9 @@ const projects = ({ projects }: any) => {
           content="List of all projects carried out by by Ovamann"
         />
       </Head>
-      <div>
+      <ClientOnly>
         <Projects />
-      </div>
+      </ClientOnly>
     </>
   );
 };

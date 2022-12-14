@@ -19,14 +19,14 @@ const cards = [
 
 const OurMission = () => {
   return (
-    <section className="relative bg-primary-blue text-white lg:py-8">
+    <section className="relative border-b border-slate-400 bg-primary-blue text-white ">
       <SectionWrapper className="">
         <div className=" ">
-          <div className=" flex justify-between flex-col md:flex-row gap-6  ">
-            <h2 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[84px] uppercase shrink-0">
+          <div className=" flex justify-between flex-col md:flex-row gap-6 ">
+            <h2 className="font-semibold text-white text-3xl sm:text-4xl md:text-5xl  uppercase shrink-0">
               our <br className="hidden md:block" /> mission
             </h2>
-            <p className=" text-md md:text-lg lg:text-2xl max-w-xl">
+            <p className=" text-md md:text-lg lg:text-xl max-w-xl">
               Ovamann Pumps Limited is a technology-driven Organization that
               specializes in the sales, distribution, installation, and
               maintenance of all forms of pumps, electric motors, industrial &
@@ -38,18 +38,16 @@ const OurMission = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className="w-full md:w-[48%] lg:w-[32%] px-4 py-4 lg:py-6  bg-white/20"
+                className="w-full md:w-[48%] lg:w-[32%] px-4 py-4 lg:py-6  bg-white/20 shadow-lg rounded"
               >
                 <div className="flex flex-col gap-2">
-                  <h4 className="text-3xl md:text-5xl lg:text-7xl mb-2 lg:mb-4 font-bold ">
+                  <h4 className="text-3xl md:text-4xl lg:text-5xl mb-2 lg:mb-4 font-semibold ">
                     0{++index}
                   </h4>
-                  <h3 className=" md:text-2xl lg:text-3xl font-bold uppercase">
+                  <h3 className=" md:text-2xl font-semibold capitalize">
                     {card.title}
                   </h3>
-                  <p className="md:text-xl lg:text-2xl text-white/90">
-                    {card.description}
-                  </p>
+                  <p className="md:text-lg text-white/90">{card.description}</p>
                 </div>
               </div>
             ))}

@@ -10,21 +10,21 @@ const AboutUs = () => {
         <div className=" md:grid grid-cols-12 gap-4 space-y-8 md:space-y-0 items-center">
           {/*  */}
           <div className=" col-span-5 lg:col-span-6 h-full flex flex-col space-y-2 lg:space-y-5  justify-center">
-            <h2 className="text-2xl md:text-3xl lg:text-[42px] text-black capitalize font-bold lg:leading-none xl:max-w-[70%]">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl text-black capitalize font-bold xl:max-w-[70%]">
               Providing{" "}
               <span className="text-primary-blue">
                 {" "}
                 Topnotch Pumping Solutions
               </span>
             </h2>
-            <p className="text-paragraph text-md  md:text-lg lg:text-2xl lg:max-w-[45ch]">
+            <p className="text-paragraph text-md  md:text-lg lg:text-xl lg:max-w-[45ch]">
               With over 20 years of experience in the sales, distribution,
               installation, and maintenance of all forms of pumps and fluid
               transmission projects, locally and Internationally.
             </p>
             <div className=" md:pt-8">
               <Link
-                className=" text-primary-red underline lg:text-2xl"
+                className=" text-primary-red underline lg:text-xl"
                 href="/about"
               >
                 Read more

@@ -45,14 +45,14 @@ const cards = [
 const Services = () => {
   //   const { title, description } = ourServicesData;
   return (
-    <section className="relative bg-primary-red text-white lg:py-8">
+    <section className="relative bg-primary-red text-white " id="services">
       <SectionWrapper className="">
         <div className=" ">
           <div className=" flex justify-between flex-col md:flex-row gap-6  ">
-            <h2 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[84px] uppercase shrink-0">
-              our <br className="hidden md:block" /> mission
+            <h2 className="font-semibold text-white text-3xl sm:text-4xl md:text-5xl  uppercase shrink-0">
+              our <br className="hidden md:block" /> services
             </h2>
-            <p className=" text-md md:text-lg lg:text-2xl max-w-xl">
+            <p className="text-md md:text-lg lg:text-xl max-w-xl">
               Ovamann Pumps Limited is a technology-driven Organization that
               specializes in the sales, distribution, installation, and
               maintenance of all forms of pumps, electric motors, industrial &
@@ -67,13 +67,13 @@ const Services = () => {
                 className="w-full md:w-[48%] lg:w-[32%] px-4 py-4 lg:py-6  border border-white/80"
               >
                 <div className="flex flex-col gap-2">
-                  <div className=" w-fit md:w-14 md:h-14  mb-3 lg:mb-4  ">
+                  <div className=" w-fit md:w-10 md:h-10  mb-2  ">
                     <service.Icon className="w-8 h-8" />
                   </div>
-                  <h3 className=" md:text-2xl lg:text-3xl font-bold uppercase">
+                  <h3 className=" md:text-xl lg:text-2xl font-semibold capitalize">
                     {service.title}
                   </h3>
-                  <p className="md:text-xl lg:text-2xl text-white/90">
+                  <p className="md:text-lg text-white/90">
                     {service.description}
                   </p>
                 </div>
