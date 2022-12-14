@@ -20,6 +20,7 @@ import ProjectCardSkeleton from "../ui/ProjectCardSkeleton";
 
 const Projects = () => {
   // const ref = useRef(null);
+  // const ref = useRef(null);
   // const isInView = useInView(ref);
 
   // useEffect(() => {
