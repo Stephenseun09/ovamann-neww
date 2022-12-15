@@ -39,7 +39,6 @@ const Header = () => {
               width={130}
               height={47}
               priority
-              onClick={() => setIsOpen.off()}
             />
           </Link>
 
@@ -82,7 +81,7 @@ const Header = () => {
       </div>
 
       {/* <!-- Mobile nav starts --> */}
-      {isOpen && <MobileNav onClose={setIsOpen.toggle} />}
+      {isOpen && <MobileNav onClose={setIsOpen.off} />}
       {/* <!-- Mobile nav ends --> */}
       {/* <!---------------------> */}
       {/* <!-- Nav menu ends --> */}

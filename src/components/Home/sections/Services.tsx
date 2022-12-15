@@ -1,41 +1,31 @@
-import {
-  CustomerFocusedIcon,
-  PartnerIcon,
-  QualityIcon,
-} from "@/components/ui/custom-icons";
+import { ServicesIcon } from "@/components/ui/custom-icons";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
 const cards = [
   {
-    Icon: QualityIcon,
     title: "Water Engineering",
     description: "To champion innovative solutions for all pumping needs.",
   },
   {
-    Icon: CustomerFocusedIcon,
     title: "Pipes and Fittings",
     description:
       "We provide topnotch pumping solutions to her numerous groups of clients",
   },
   {
-    Icon: PartnerIcon,
     title: "Filtration Experts",
     description:
       "worldclass pump brands to deliver quality products and unmatched value.",
   },
   {
-    Icon: QualityIcon,
     title: "Pumps and Motors",
     description: "To champion innovative solutions for all pumping needs.",
   },
   {
-    Icon: CustomerFocusedIcon,
     title: "Starter Panels",
     description:
       "We provide topnotch pumping solutions to her numerous groups of clients",
   },
   {
-    Icon: PartnerIcon,
     title: "Sales and Services",
     description:
       "worldclass pump brands to deliver quality products and unmatched value.",
@@ -68,7 +58,7 @@ const Services = () => {
               >
                 <div className="flex flex-col gap-2">
                   <div className=" w-fit md:w-10 md:h-10  mb-2  ">
-                    <service.Icon className="w-8 h-8" />
+                    <ServicesIcon className="w-8 h-8" />
                   </div>
                   <h3 className=" md:text-xl lg:text-2xl font-semibold capitalize">
                     {service.title}
