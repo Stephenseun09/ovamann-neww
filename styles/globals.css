@@ -36,3 +36,27 @@ a {
     display: block !important;
   }
 }
+
+/* Slider styles */
+.swiper {
+  overflow: visible !important;
+}
+.swiper-pagination {
+  position: relative !important;
+  inset: auto !important;
+  margin-block-start: 1rem;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: #444343;
+}
+
+.swiper-pagination-bullet-active {
+  background: #2d9cdb;
+}
+.swiper-button-disabled {
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
+}

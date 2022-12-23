@@ -10,6 +10,10 @@ import Layout from "@/components/layouts/Layout";
 
 import "../../styles/globals.css";
 import "../../styles/nprogress.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
 
 //////////////////////////////////
 

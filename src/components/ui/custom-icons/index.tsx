@@ -7,3 +7,4 @@ export { default as PhoneIcon } from "./PhoneIcon";
 export { default as MenuIcon } from "./MenuIcon";
 export { default as CloseIcon } from "./CloseIcon";
 export { default as ServicesIcon } from "./ServicesIcon";
+export { default as ArrowRightIcon } from "./ArrowRightIcon";
