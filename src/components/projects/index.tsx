@@ -2,11 +2,18 @@ import {
   CATEGORY_NAMES_QUERY,
   GET_ALL_PROJECTS,
   GET_PROJECT_BY_CATEGORY,
+  GET_SEARCH,
 } from "@/lib/query";
 import { CategoriesData } from "@/typings/categories";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import Image from "next/image";
-import { useCallback, useEffect, useState, useMemo } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+  useMemo,
+  FormEvent,
+} from "react";
 import heroImg from "../../../public/images/hero.png";
 import { OurProjects } from "../Home/sections";
 import ContactUs from "../Home/sections/ContactUs";
@@ -19,12 +26,7 @@ import FilterByPillSkeleton from "../ui/FilterByPillSkeleton";
 import ProjectCardSkeleton from "../ui/ProjectCardSkeleton";
 
 const Projects = () => {
-  // const ref = useRef(null);
-  // const isInView = useInView(ref);
-
-  // useEffect(() => {
-  //  handleFetchMore();
-  // }, [isInView]);
+  const [query, setQuery] = useState("");
 
   const {
     data: categoriesNamesData,
@@ -45,6 +47,20 @@ const Projects = () => {
     getAllProjectsByCategory,
     { loading: projectsByCategoryLoading, error: projectsByCategoryError },
   ] = useLazyQuery<ProjectConnectionData>(GET_PROJECT_BY_CATEGORY);
+
+  const [
+    getSearchedProjects,
+    {
+      loading: searchLoading,
+      data: searchData,
+      error: searchError,
+      networkStatus,
+      fetchMore,
+    },
+  ] = useLazyQuery(GET_SEARCH, {
+    variables: { search: query, first: 15 },
+    notifyOnNetworkStatusChange: true,
+  });
 
   const [filteredProjects, setFilteredProjects] = useState(
     allProjectsData ? allProjectsData.projectsConnection.edges : []
@@ -113,7 +129,29 @@ const Projects = () => {
     setFilteredProjects(allProjectsData?.projectsConnection.edges);
   }, [allProjectsData?.projectsConnection.edges]);
 
-  if (categoriesNamesError || allProjectsError || projectsByCategoryError) {
+  const searchHandler = useMemo(
+    () => (e: any) => {
+      const search = e.target.value.trim();
+      if (search.length > 2) {
+        setActiveTab("");
+        setQuery(search);
+        getSearchedProjects().then((res) => {
+          setFilteredProjects(res?.data?.projectsConnection.edges);
+        });
+      } else {
+        setFilteredProjects(allProjectsData?.projectsConnection.edges);
+        setActiveTab("All");
+      }
+    },
+    [allProjectsData?.projectsConnection.edges, getSearchedProjects]
+  );
+
+  if (
+    categoriesNamesError ||
+    allProjectsError ||
+    projectsByCategoryError ||
+    searchError
+  ) {
     return (
       <p className="text-xl text-center my-6">
         Something went wrong, please try again
@@ -155,6 +193,14 @@ const Projects = () => {
           </div>
 
           <SectionWrapper>
+            <div className="flex mb-8">
+              <input
+                type="search"
+                placeholder="Search for projects"
+                className="w-full md:w-2/5 xl:w-1/3 border border-gray-300 rounded-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
+                onChange={searchHandler}
+              />
+            </div>
             <div className="flex flex-wrap gap-3 mb-8">
               <FilterByPill
                 activeTab={activeTab}
@@ -178,7 +224,7 @@ const Projects = () => {
             <div className="pt-4 space-y-10 sm:space-y-0 gap-8 sm:grid grid-cols-4 lg:grid-cols-6 justify-between ">
               {
                 // allProjectsLoading or projectsByCategoryLoading
-                allProjectsLoading || projectsByCategoryLoading
+                allProjectsLoading || projectsByCategoryLoading || searchLoading
                   ? [1, 2, 3].map((_, idx) => (
                       <div key={idx} className="col-span-2">
                         <ProjectCardSkeleton />

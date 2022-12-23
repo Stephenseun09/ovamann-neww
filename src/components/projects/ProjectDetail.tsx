@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import heroImg from "../../../public/images/project-detail.png";
 import ProjectCard from "../ui/ProjectCard";
 import ProjectSummary from "./ProjectSummary";
 import { ProjectDetails } from "@/typings/projectDetails";
 import dateFormatter from "@/utils/dateFormat";
 import { ProjectsEntity } from "@/typings/projects";
+import Gallery from "./Gallery";
 
 const ProjectDetail = ({
   projectDetails,
@@ -18,12 +18,11 @@ const ProjectDetail = ({
     <section className="mt-20 md:mt-10">
       <div className="flex justify-center ">
         <Image
-          src={heroImg}
+          src={projectDetails?.coverImage?.url || ""}
           alt="hero image"
           width={1512}
           height={723}
-          placeholder="blur"
-          className="object-cover w-full max-h-[500px] "
+          className="object-cover w-full max-h-[500px] bg-slate-300"
           priority
         />
       </div>
@@ -45,10 +44,10 @@ const ProjectDetail = ({
 
             <p className=" max-w-7xl md:text-lg ">{projectDetails.overview}</p>
 
-            <div className="flex flex-col gap-6 md:flex-row pt-4 lg:pt-6">
+            {/* <div className="flex flex-col gap-6 md:flex-row pt-4 lg:pt-6">
               <div className="h-[350px] md:w-[49%] bg-[#D9D9D9] " />
               <div className="h-[350px] md:w-[49%] bg-[#D9D9D9]" />
-            </div>
+            </div> */}
           </div>
           {/* project overview */}
           {/*----------------- */}
@@ -90,27 +89,11 @@ const ProjectDetail = ({
         <div className=" px-4 sm:px-5 md:px-7 mx-auto max-w-[89rem]">
           {/*----------- */}
           {/* Gallery */}
-          <div className=" space-y-2 md:space-y-4 mt-12 lg:mt-14">
-            <h2 className="font-semibold text-lg md:text-2xl lg:text-3xl uppercase">
-              Gallery
-            </h2>
-
-            {/* <p className="max-w-7xl md:text-lg">
-              Enjoy some images of the project.
-            </p> */}
-
-            <div className="flex flex-col gap-6 md:flex-row flex-wrap ">
-              {projectDetails.gallery?.map((item, index) => (
-                <Image
-                  key={index}
-                  className="h-[250px] w-full md:w-[48%] lg:w-[32%] bg-[#D9D9D9] shadow-lg "
-                  alt={`gallery image ${index}`}
-                  src={item.url}
-                  width={400}
-                  height={300}
-                />
-              ))}
-            </div>
+          <div className="  mt-12 lg:mt-14">
+            <Gallery
+              gallery={projectDetails?.gallery}
+              title={projectDetails?.title}
+            />
           </div>
           {/* Gallery */}
           {/*----------- */}

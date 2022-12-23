@@ -135,3 +135,33 @@ export const GET_RELATED_PROJECTS = gql`
     }
   }
 `;
+
+export const GET_SEARCH = gql`
+  query GetSearchedPost($after: String, $search: String, $first: Int) {
+    projectsConnection(
+      where: { _search: $search }
+      first: $first
+      after: $after
+    ) {
+      edges {
+        cursor
+        node {
+          excerpt
+          id
+          slug
+          title
+          categories {
+            name
+          }
+          coverImage {
+            url
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+`;
