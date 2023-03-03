@@ -2,6 +2,7 @@ import Left from "./Left";
 import Right from "./Right";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-primary-blue relative">
       <div className=" max-w-[86rem] mx-auto px-4 sm:px-5 md:px-7 pt-10 sm:pt-12  pb-5  sm:pb-6 ">
@@ -25,7 +26,7 @@ const Footer = () => {
 
         <hr className="  mt-12 md:mt-14 border-slate-400" />
         <p className="text-[13px] sm:text-[14px] md:text-[15px] text-slate-200 text-center  mt-4 md:mt-7 ">
-          Copyright © {new Date().getFullYear()} Ovamann. All rights reserved
+          Copyright © {currentYear} Ovamann. All rights reserved
         </p>
       </div>
     </footer>

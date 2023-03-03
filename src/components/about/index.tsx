@@ -21,7 +21,7 @@ const About = () => {
             />
             <div className="grid items-center col-start-1 row-start-1 bg-black bg-opacity-20 px-4  sm:px-5 md:px-7 py-4 mt-4">
               <div className="w-full flex justify-between flex-col md:flex-row gap-6 mx-auto max-w-[86rem]">
-                <h1 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase shrink-0 drop-shadow-lg shadow-lg">
+                <h1 className="font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase shrink-0 drop-shadow-lg">
                   About Us
                 </h1>
                 <p className="text-white text-md md:text-lg lg:text-xl max-w-xl">
