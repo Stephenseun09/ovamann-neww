@@ -6,7 +6,6 @@ import { ProjectDetails } from "@/typings/projectDetails";
 import dateFormatter from "@/utils/dateFormat";
 import { ProjectsEntity } from "@/typings/projects";
 import Gallery from "./Gallery";
-import { RichText } from "@graphcms/rich-text-react-renderer";
 import RichTextRenderer from "./RichTextRenderer";
 
 const ProjectDetail = ({
