@@ -16,7 +16,6 @@ const ProjectDetail = ({
   projectDetails: ProjectDetails;
   projects: ProjectsEntity[];
 }) => {
-  console.log(projectDetails);
   return (
     <section className="mt-20 md:mt-10">
       <div className="flex justify-center ">
@@ -86,8 +85,10 @@ const ProjectDetail = ({
               categories={projectDetails.categories?.map(
                 (item, idx) =>
                   item.name +
-                  // @ts-ignore
-                  (idx === projectDetails?.categories?.length - 1 ? "" : ", ")
+                  (projectDetails?.categories?.length &&
+                  idx === projectDetails?.categories?.length - 1
+                    ? ""
+                    : ", ")
               )}
               client={projectDetails?.client}
               date={projectDetails?.date && dateFormatter(projectDetails?.date)}

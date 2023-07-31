@@ -14,10 +14,10 @@ const ProjectSummary = ({
   location: string;
 }) => {
   return (
-    <div className="  text-white py-8 lg:py-10">
+    <div className=" text-white py-8 lg:py-10">
       <div className=" flex justify-between flex-col md:flex-row gap-6 md:gap-8 lg:gap-10 ">
         <div className="shrink-0 md:max-w-[50%]">
-          <h2 className="font-semibold text-white text-3xl sm:text-4xl md:text-5xl uppercase ">
+          <h2 className="font-semibold text-white text-3xl sm:text-4xl md:text-5xl uppercase">
             project <br className="hidden md:block" />
             summary
           </h2>
