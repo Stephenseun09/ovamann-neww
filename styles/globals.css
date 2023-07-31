@@ -60,3 +60,10 @@ a {
   opacity: 0.6;
   transition: all 0.3s ease-in-out;
 }
+
+.rich-text-renderer p {
+  @apply max-w-7xl md:text-lg;
+}
+.rich-text-renderer a {
+  @apply underline text-primary;
+}
