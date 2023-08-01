@@ -70,7 +70,6 @@ export const GET_PROJECT_DETAILS = gql`
       gallery {
         url
       }
-      overview
       projectBrochure {
         url
       }

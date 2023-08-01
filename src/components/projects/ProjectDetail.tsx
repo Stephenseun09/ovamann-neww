@@ -6,6 +6,7 @@ import { ProjectDetails } from "@/typings/projectDetails";
 import dateFormatter from "@/utils/dateFormat";
 import { ProjectsEntity } from "@/typings/projects";
 import Gallery from "./Gallery";
+import { RichText } from "@graphcms/rich-text-react-renderer";
 import RichTextRenderer from "./RichTextRenderer";
 
 const ProjectDetail = ({
@@ -15,6 +16,7 @@ const ProjectDetail = ({
   projectDetails: ProjectDetails;
   projects: ProjectsEntity[];
 }) => {
+  console.log(projectDetails);
   return (
     <section className="mt-20 md:mt-10">
       <div className="flex justify-center ">
@@ -43,12 +45,7 @@ const ProjectDetail = ({
               Project Overview
             </h2>
 
-            <div className={"rich-text-renderer"}>
-              <RichTextRenderer
-                // @ts-ignore
-                content={projectDetails?.projectOverview?.raw}
-              />
-            </div>
+            <RichTextRenderer content={projectDetails?.projectOverview?.raw} />
 
             {/* <div className="flex flex-col gap-6 md:flex-row pt-4 lg:pt-6">
               <div className="h-[350px] md:w-[49%] bg-[#D9D9D9] " />
@@ -65,12 +62,7 @@ const ProjectDetail = ({
               What We Did
             </h2>
 
-            <div className={"rich-text-renderer"}>
-              <RichTextRenderer
-                // @ts-ignore
-                content={projectDetails?.whatWeDid?.raw}
-              />
-            </div>
+            <RichTextRenderer content={projectDetails?.whatWeDid?.raw} />
           </div>
           {/* What we did */}
           {/*----------- */}
@@ -84,10 +76,8 @@ const ProjectDetail = ({
               categories={projectDetails.categories?.map(
                 (item, idx) =>
                   item.name +
-                  (projectDetails?.categories?.length &&
-                  idx === projectDetails?.categories?.length - 1
-                    ? ""
-                    : ", ")
+                  // @ts-ignore
+                  (idx === projectDetails?.categories?.length - 1 ? "" : ", ")
               )}
               client={projectDetails?.client}
               date={projectDetails?.date && dateFormatter(projectDetails?.date)}
